@@ -11,7 +11,7 @@ interface ProductCardProps {
 }
 
 
-const ProductCard = ({ product, isFavorite, onToggleFavorite }: ProductCardProps) => {
+const ProductCard = React.memo(({ product, isFavorite, onToggleFavorite }: ProductCardProps) => {
 
   // Runs after every render
   useEffect(() => {
@@ -26,6 +26,6 @@ const ProductCard = ({ product, isFavorite, onToggleFavorite }: ProductCardProps
       </button>
     </div>
   );
-};
+});
 
 export default ProductCard;

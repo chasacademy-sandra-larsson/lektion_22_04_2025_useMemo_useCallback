@@ -6,6 +6,7 @@ import ProductCard from './ProductCard';
 const products = [
   { id: 1, name: 'Sneakers' },
   { id: 2, name: 'T-shirt' },
+  { id: 3, name: 'Stereo'}
 ];
 
 export type Product = {
@@ -16,14 +17,14 @@ export type Product = {
 
 
 export default function ProductList() {
-   'use memo'
+
   const [favorites, setFavorites] = useState<number[]>([]);
 
-  const toggleFavorite =(id: number) => {
+  const toggleFavorite = useCallback((id: number) => {
     setFavorites((prev) =>
       prev.includes(id) ? prev.filter(pid => pid !== id) : [...prev, id]
     );
-  };
+  }, []);
 
   return (
     <div>
